@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Actividad</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<div th:replace="navbar/navbar :: navbar"></div>
+
+<body class="bg-light">
+
+    <div class="container py-5">
+
+        <div class="text-center mb-4">
+            <h1 class="fw-bold text-primary">Detalle de Actividad</h1>
+        </div>
+
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-header bg-primary text-white rounded-top-4">
+                <h4 class="mb-0" th:text="'Actividad: ' + ${actividad.nombreActividad}"></h4>
+            </div>
+
+            <div class="card-body p-4">
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <p class="mb-1 text-secondary fw-bold">Usuario</p>
+                        <p class="form-control bg-light" th:text="${actividad.usuario.nombre}"></p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p class="mb-1 text-secondary fw-bold">Sala</p>
+                        <p class="form-control bg-light" th:text="${actividad.sala.nombreSala}"></p>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+
+                    <div class="col-md-6">
+                        <p class="mb-1 text-secondary fw-bold">Hora de entrada</p>
+                        <p class="form-control bg-light"
+                            th:text="${#temporals.format(actividad.horaEntrada, 'dd/MM/yyyy HH:mm')}"></p>
+                    </div>
+
+                    <div class="col-md-6" th:if="${actividad.horaSalida != null}">
+                        <p class="mb-1 text-secondary fw-bold">Hora de salida</p>
+                        <p class="form-control bg-light"
+                            th:text="${#temporals.format(actividad.horaSalida, 'dd/MM/yyyy HH:mm')}"></p>
+                    </div>
+
+                </div>
+
+                <div class="row mb-3">
+
+                    <div class="col-md-6">
+                        <p class="mb-1 text-secondary fw-bold">Fecha de registro</p>
+                        <p class="form-control bg-light"
+                            th:text="${#temporals.format(actividad.fechaRegistro, 'dd/MM/yyyy')}"></p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p class="mb-1 text-secondary fw-bold">Estatus</p>
+                        <p class="form-control bg-light" th:text="${actividad.estatus == 'A' ? 'Activa' : 'Inactiva'}">
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a th:href="@{/web/actividades}" class="btn btn-outline-primary px-4 py-2">
+                Volver al listado
+            </a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

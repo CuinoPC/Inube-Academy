@@ -1,0 +1,34 @@
+<!-- src/main/resources/templates/fragments/navbar.html -->
+<div th:fragment="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" th:href="@{/}">Inube Academy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto"></ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link btn btn-outline-light px-3 py-2 rounded" th:href="@{/web/actividades}"
+                            th:classappend="${activePage == 'actividades'} ? ' active'">Actividades</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link btn btn-outline-light px-3 py-2 rounded" th:href="@{/web/salas}"
+                            th:classappend="${activePage == 'salas'} ? ' active'">Salas</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link btn btn-outline-light px-3 py-2 rounded" th:href="@{/web/registroDiario}"
+                            th:classappend="${activePage == 'registroDiario'} ? ' active'">Registro Diario</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link btn btn-outline-light px-3 py-2 rounded" th:href="@{/web/usuarios}"
+                            th:classappend="${activePage == 'usuarios'} ? ' active'">Usuarios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
