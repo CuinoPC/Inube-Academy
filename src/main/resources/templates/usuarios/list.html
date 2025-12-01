@@ -41,6 +41,7 @@
             <table class="table table-hover table-bordered align-middle">
                 <thead class="table-dark">
                     <tr>
+                        <th>ID</th>
                         <th>Nombre</th>
                         <th>Correo</th>
                         <th>Estatus</th>
@@ -50,6 +51,7 @@
                 </thead>
                 <tbody>
                     <tr th:each="usuario : ${usuarios}" th:classappend="${usuario.estatus == 'I'} ? 'inactive'">
+                        <td th:text="${usuario.idUsuario}"></td>
                         <td th:text="${usuario.nombre}"></td>
                         <td th:text="${usuario.correo}"></td>
                         <td class="text-center">
